@@ -1,0 +1,13 @@
+{
+  "name": "stim.in",
+  "dependencies": {
+    "bootstrap": "3.2.*",
+    "html5shiv": "3.7.*",
+    "flexslider": "*",
+    "font-awesome": "4.*",
+    "jquery": "1.11.*",
+    "jquery.easing": "1.*",
+    "jquery-waypoints": "2.0.*",
+    "respond": "1.4.*"
+  }
+}
