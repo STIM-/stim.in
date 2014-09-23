@@ -48,7 +48,7 @@
   define ('_TIME',       date ('H:i:s', _TIMESTAMP));
   define ('_DATETIME',   _DATE .' '. _TIME);
 
-  define ('_SECRET',     'tAiWaNwAy');
+  define ('_SECRET',     'sTiM.In');
 
 
   /**
@@ -56,6 +56,7 @@
    * Externals (before $app generate)
    *
    */
+  //require_once _ROOT . '/external/I18n.php';
   require_once _ROOT . '/external/TwigTraitAdapter.php';
   require_once _ROOT . '/external/Pager.php';
 
@@ -159,6 +160,7 @@
     'twig.options' => array ('cache' => _ROOT . '/caches', 'auto_reload' => true),
   ));
 
+  $app['twig']->addExtension (new Twig_Extensions_Extension_I18n ());
   $app['twig']->addFunction (new Twig_SimpleFunction ('die', 'die'));
   $app['twig']->addFunction (new Twig_SimpleFunction ('set', function ($key, $val) use ($app) { $app['twig.' . $key] = $val; }));
   $app['twig']->addFilter (new Twig_SimpleFilter ('is_*', function ($page, $input, $ret = 'active') { return $input == $page ? $ret : ''; }));

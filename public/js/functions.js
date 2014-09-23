@@ -97,6 +97,7 @@
         bar.width(bar_width + '%');
     }, {offset: '90%'});
 
+    /*
     $('a.item').click(function(e){
         e.stopPropagation();
         e.preventDefault();
@@ -107,6 +108,7 @@
         lightboxInit(newItem);
         
     });
+    */
 
     function lightboxInit(e){
         var item = e;
