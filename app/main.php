@@ -25,31 +25,31 @@
    * Mail to
    *
    */
-  $app->get ('/mailto', function (Request $request) use ($app) {
+  $app->post ('/mailto', function (Request $request) use ($app) {
 
     $data = [
-      'name' => $request->request->get ('name'),
+      'name'    => $request->request->get ('name'),
+      'email'   => $request->request->get ('email'),
+      'phone'   => $request->request->get ('phone'),
+      'message' => $request->request->get ('message'),
     ];
 
-    $subject = 'E-mail from <yourdomain.com>'; // Subject of your email
-    $to      = 'hello@stim.in'; //Your e-mail address
+    $subject = 'Hello from ' . $data['name'] . ' @ stim.in';
+    //$to      = 'hello@stim.in';
+    $to      = 'wake.gs@gmail.com';
     $headers = 'MIME-Version: 1.0' . "\r\n" .
                'Content-type: text/html; charset=UTF-8' . "\r\n";
-    $message = 'Name: ' . $_REQUEST['name'] . ' <br/>' .
-               'E-mail: ' . $_REQUEST['email'] . ' <br/>' .
-               'Phone: ' . $_REQUEST['phone'] . ' <br/>' .
-               'Message: ' .$_REQUEST['message'];
+    $message = 'Name: ' . $data['name'] . ' <br />' .
+               'E-mail: ' . $data['email'] . ' <br />' .
+               'Phone: ' . $data['phone'] . ' <br />' .
+               'Message: <br />' .
+               nl2br ($data['message']);
 
-    if (@mail($to, $subject, $message, $headers))
-    {
-     echo 'sent';
-    }
-    else
-    {
-     echo 'failed';
-    }
-    return $app->render ('index.html');
+    $res = 'sent';
+
+    if (! @mail ($to, $subject, $message, $headers))
+      $res = 'failed';
+
+    return $res;
 
   })->bind ('mailto');
-
-

@@ -306,8 +306,10 @@
    */
   $app->run ();
 
+  /*
   if (isset ($_GET['bug']) && $app['debug'])
     echo '<pre>' . var_export (ORM::get_query_log (), true);
 
   else if ($app['debug'])
     echo "<!-- \n" . var_export (ORM::get_query_log (), true) . "\n -->";
+  */
