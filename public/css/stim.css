@@ -1,3 +1,11 @@
+#meet .title-block {
+  padding-top: 10px;
+}
+
+#meet .title-block h2 {
+  margin-top: 13px;
+}
+
 #contact ul.contact {
     list-style:none;
     padding: 5px 0 0 3px;
