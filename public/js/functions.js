@@ -187,4 +187,8 @@ $(window).load(function(){
 
 function showSite(){
   $('.loader').addClass('loaded');
+
+  // Fix for a strange problem that show words with Google font
+  $('.top').addClass('light');
+  setTimeout (function () { $('.top').removeClass('light'); }, 100);
 }
